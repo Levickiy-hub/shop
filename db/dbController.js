@@ -21,15 +21,29 @@ async function CreateProduct(name, description, price) {
     }).catch(err => console.log(err));
 };
 async function GetUsers(){
-    return db.User.findAll();
+    return await db.User.findAll();
 }
 async function GetUserByLogin(login){
-    return db.User.findOne({where:{login:login}});
+    return  await db.User.findOne({where:{login:login}});
 }
 async function GetProducts(){
-    return db.Products.findAll();
+    return await db.Products.findAll();
+}
+async function GetProductById(id){
+    return await db.Products.findOne({where:{id:id}});
 }
 
+async function GetCategory(){
+    return await db.Categories.findAll();
+}
+async function CreateCategory(name, description) {
+    await db.Categories.create({
+        name: name,
+        description: description
+    }).then(res => {
+        console.log(res);
+    }).catch(err => console.log(err));
+};
 module.exports = {
-    GetUsers, CreateUser,CreateProduct,GetProducts,GetUserByLogin
+    GetUsers, CreateUser,CreateProduct,GetProducts,GetUserByLogin,GetCategory,CreateCategory,GetProductById
 }

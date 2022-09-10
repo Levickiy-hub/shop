@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const {PostUser} = require('../controllers/users');
 
-router.post('registration', async function(req, res, next) {
+router.post('/registration', async function(req, res, next) {
   await PostUser(req,res);
 });
 router.post('/login',function (req, res, next) {

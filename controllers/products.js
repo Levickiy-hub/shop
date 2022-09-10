@@ -9,7 +9,12 @@ async function CreateProducts(req,res){
     const products = await db.CreateProduct(name,description,price);
     res.send(products);
 }
+async function GetProductById(req,res){
+    const {id} = req.params;
+    const product = await db.GetProductById(id);
+    res.send(product);
+}
 
 module.exports={
-    GetProducts, CreateProducts
+    GetProducts, CreateProducts,GetProductById
 }

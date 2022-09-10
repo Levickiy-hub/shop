@@ -47,11 +47,11 @@ const Products= sequelize.define("products", {
         allowNull: true
     },
     description: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
     },
     price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
     },
     img:{
@@ -71,6 +71,22 @@ const Categories= sequelize.define("categories", {
         allowNull: true
     },
     description: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }
+});
+const Product_Categories= sequelize.define("product_categories", {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+    },
+    product_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+    },
+    category_id: {
         type: Sequelize.INTEGER,
         allowNull: true
     }
@@ -78,5 +94,5 @@ const Categories= sequelize.define("categories", {
 sequelize.sync().then()
     .catch(err => console.log(err));
 module.exports = {
-    sequelize, User, Products,Categories
+    sequelize, User, Products,Categories,Product_Categories
 };
