@@ -26,6 +26,9 @@ async function GetUsers(){
 async function GetUserByLogin(login){
     return  await db.User.findOne({where:{login:login}});
 }
+async function GetUserById(id){
+    return  await db.User.findOne({where:{id:id}});
+}
 async function GetProducts(){
     return await db.Products.findAll();
 }
@@ -45,5 +48,5 @@ async function CreateCategory(name, description) {
     }).catch(err => console.log(err));
 };
 module.exports = {
-    GetUsers, CreateUser,CreateProduct,GetProducts,GetUserByLogin,GetCategory,CreateCategory,GetProductById
+    GetUsers, CreateUser,CreateProduct,GetProducts,GetUserByLogin,GetCategory,CreateCategory,GetProductById,GetUserById
 }

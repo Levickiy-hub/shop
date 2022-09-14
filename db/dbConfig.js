@@ -29,7 +29,15 @@ const User = sequelize.define("users", {
     },
     role: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+    },
+    address:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    phone_number:{
+        type: Sequelize.STRING,
+        allowNull: true
     }
 });
 // sequelize.sync().then()
